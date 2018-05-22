@@ -1,0 +1,81 @@
+﻿<style>
+    .header_item:hover {
+        background-image: linear-gradient( green,lawngreen);
+    }
+    .content-widget {
+        background-image: linear-gradient(lawngreen,yellowgreen);
+    }
+    h2 {
+        color: yellowgreen;
+    }
+</style>
+<div class="content-container">
+    <div class="content-row">
+        <div class="content-widget" style="flex-grow: 4">
+            <div><h3>Payments by card</h3></div>
+
+            <div>
+                <i class="fa fa-money "></i>
+                <h4>@ViewBag.PayByCard</h4>
+            </div>
+        </div>
+        <div class="content-widget" style="flex-grow: 3">
+            <div><h3>Payments by cash </h3></div>
+
+            <div>
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <h4>@ViewBag.PayByCash</h4>
+            </div>
+        </div>
+        <div class="content-widget" style="flex-grow: 3">
+            <div><h3> Total revenue from card payments</h3></div>
+
+            <div>
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <h4>$@ViewBag.CardRevenue</h4>
+            </div>
+        </div>
+        <div class="content-widget" style="flex-grow: 3">
+            <div><h3> Total revenue from cash payments</h3></div>
+
+            <div>
+                <i class="fa fa-money" aria-hidden="true"></i>
+                <h4>$@ViewBag.CashRevenue</h4>
+            </div>
+        </div>
+    </div>
+    <div class="content-row">
+        <div class="content-widget" style="flex-grow: 4">
+            <div><h3>Average tips</h3></div>
+
+            <div>
+                <i class="fa fa-money "></i>
+                <h4>$@ViewBag.AvrgTips</h4>
+            </div>
+        </div>
+        <div class="content-widget" style="flex-grow: 4">
+            <div><h3>Tips count</h3></div>
+
+            <div>
+                <i class="fa fa-money "></i>
+                <h4>@ViewBag.TipsCount</h4>
+            </div>
+        </div>
+        <div class="content-widget" style="flex-grow: 4">
+            <div><h3>Total tips</h3></div>
+
+            <div>
+                <i class="fa fa-money "></i>
+                <h4>$@ViewBag.TipsSum</h4>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+

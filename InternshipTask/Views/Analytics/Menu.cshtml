@@ -1,0 +1,32 @@
+﻿@using InternshipTask.Models
+<link rel='stylesheet' href='~/css/MenuStyle.css' type='text/css' media='all'>
+<div class="content-container" >
+    <div class="content-row" >
+        @foreach (KeyValuePair<OrderItem, int> item in ViewBag.Top10)
+        {
+        <div class="content-widget_top" >
+            <h3>@item.Key.Name</h3>
+            <h4>Total count: @item.Value</h4>
+            <h4>Total income: @(item.Key.Price * item.Value)</h4>
+        </div>
+        }
+    </div>
+    <div class="content-row" >
+        @foreach (KeyValuePair<OrderItem, int> item in ViewBag.Last10)
+        {
+            <div class="content-widget_low"><h3>@item.Key.Name</h3></div>
+        
+        }
+
+    </div>
+
+</div>
+        
+                
+               
+            
+            
+               
+     
+ 
+

@@ -1,0 +1,84 @@
+﻿<style>
+    .header_item:hover {
+        background-image: linear-gradient(darkcyan,deepskyblue);
+    }
+
+    .content-widget {
+        background-image: linear-gradient(cornflowerblue,deepskyblue);
+        
+    }
+    h2 {
+        color: cornflowerblue;
+        text-transform: uppercase;
+    }
+</style>
+<div class="content-container">
+    <div class="content-row">
+        <div class="content-widget" style="flex-grow: 4">
+            <div >
+                <h3>Average Paid Order</h3>
+            </div>
+            <div>
+               <i class="fa fa-tags"></i>
+               <h4>$@ViewBag.AvrgPaidOrder </h4>
+            </div>
+
+
+
+        </div>
+        <div class="content-widget" style="flex-grow: 3">
+            <div>
+                <h3>Total Revenue</h3>
+            </div>
+            <div>
+                <i class="fa fa-money" aria-hidden="true"></i>
+                <h4>$@ViewBag.TotalRevenue </h4>
+            </div>
+
+
+
+        </div>
+        <div class="content-widget" style="flex-grow: 2">
+            <div>
+                <h3>Total Orders</h3>
+            </div>
+            <div>
+               <i class="fa fa-cutlery" aria-hidden="true"></i>
+                <h4>@ViewBag.TotalOrders</h4>
+            </div>
+
+
+
+        </div>
+        <div class="content-widget" style="flex-grow: 1">
+            <div>
+                <h3>Total Ordered Items</h3>
+            </div>
+            <div>
+                <i class="fa fa-coffee" aria-hidden="true"></i>
+                <h4>@ViewBag.TotalOrderedItems</h4>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="content-row" style="flex-grow: 7">
+        <div><canvas class="chart"></canvas></div>
+    </div>   
+    
+    
+        
+    
+
+</div>
+        
+        
+       
+        
+        
+        
+
+
+
+
