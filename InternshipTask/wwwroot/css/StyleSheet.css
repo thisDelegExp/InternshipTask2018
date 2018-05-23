@@ -44,7 +44,7 @@ header {
     margin-left: 5px;
     cursor: pointer;
 }
-    .header_item:hover {
+.header_item:hover {
         
         border-radius: 4px;
     }
@@ -95,7 +95,7 @@ footer{
 .chart {
     height: 50vh;
     overflow: hidden;
-    background-color: blue;
+    
 }
 
 h3 {
@@ -118,5 +118,10 @@ img {
 }
 h2 {
     text-transform: uppercase;
+}
+
+input[type=radio] {
+    padding: 10px;
+    
 }
 

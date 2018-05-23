@@ -3,12 +3,14 @@
  }
  .content-row {
      flex-wrap: nowrap;
+     justify-content: space-around;
+     align-content: center;
  }
 
  .content-widget_top {
      margin: 10px 10px;
      padding: 10px 10px;
-     flex-grow: 4;
+     flex-grow: 2;
      background-image: linear-gradient( green,lawngreen);
      text-align: center;
  }
@@ -16,7 +18,7 @@
 .content-widget_low {
     margin: 10px 10px;
     padding: 10px 10px;
-    flex-grow: 3;
+    flex-grow: 1;
     background-image: linear-gradient(firebrick,crimson);
     text-align: center;
 }
@@ -26,4 +28,7 @@ h2 {
     color: firebrick;
     text-transform: uppercase;
 }
+ h3 {
+     font-size: 1.1em;
+ }
 

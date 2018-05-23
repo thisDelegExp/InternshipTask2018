@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using InternshipTask.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.OData.Query.SemanticAst;
+using Newtonsoft.Json;
+
 
 namespace InternshipTask.Controllers
 {
@@ -40,7 +43,107 @@ namespace InternshipTask.Controllers
             ViewBag.TotalOrders = totalOrders;
             ViewBag.TotalOrderedItems = totalOrderedItems;
             ViewData["Title"] = "Main";
+            
+            
+
             return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetRevenueByDays()
+        {
+            var days = (from order in context.Orders select order.ClosedDate.Day).Distinct();
+            List<double> revenues = new List<double>();
+            foreach (var day in days)
+            {
+                revenues.Add((from order in context.Orders where order.ClosedDate.Day==day select order.TotalPrice).Sum());
+            }
+
+            var revenueByDays = days.Zip(revenues, (key, value) => new {key, value})
+                .ToDictionary(x => x.key, x => x.value);
+            revenueByDays.Add(0,0);
+            return Json(revenueByDays);
+        }
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetRevenueByWeeks()
+        {
+            var weeks = (from order in context.Orders select order.ClosedDate.DayOfYear/7).Distinct();
+            List<double> revenues = new List<double>();
+            foreach (var week in weeks)
+            {
+                revenues.Add((from order in context.Orders where order.ClosedDate.DayOfYear/7 == week select order.TotalPrice).Sum());
+            }
+
+            var revenueByDays = weeks.Zip(revenues, (key, value) => new { key, value })
+                .ToDictionary(x => x.key, x => x.value);
+            revenueByDays.Add(0, 0);
+            return Json(revenueByDays);
+        }
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetRevenueByMonths()
+        {
+            var months = (from order in context.Orders select order.ClosedDate.Month).Distinct();
+            List<double> revenues = new List<double>();
+            foreach (var month in months)
+            {
+                revenues.Add((from order in context.Orders where order.ClosedDate.Month == month select order.TotalPrice).Sum());
+            }
+
+            var revenueByDays = months.Zip(revenues, (key, value) => new { key, value })
+                .ToDictionary(x => x.key, x => x.value);
+            revenueByDays.Add(0, 0);
+            return Json(revenueByDays);
+        }
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetOrderCountByDays()
+        {
+            var days = (from order in context.Orders select order.ClosedDate.Day).Distinct();
+            List<double> revenues = new List<double>();
+            foreach (var day in days)
+            {
+                revenues.Add((from order in context.Orders where order.ClosedDate.Day == day select order).Count());
+            }
+
+            var revenueByDays = days.Zip(revenues, (key, value) => new { key, value })
+                .ToDictionary(x => x.key, x => x.value);
+            revenueByDays.Add(0, 0);
+            return Json(revenueByDays);
+        }
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetOrderCountByWeeks()
+        {
+            var weeks = (from order in context.Orders select order.ClosedDate.DayOfYear / 7).Distinct();
+            List<double> revenues = new List<double>();
+            foreach (var week in weeks)
+            {
+                revenues.Add((from order in context.Orders where order.ClosedDate.DayOfYear / 7 == week select order).Count());
+            }
+
+            var revenueByDays = weeks.Zip(revenues, (key, value) => new { key, value })
+                .ToDictionary(x => x.key, x => x.value);
+            revenueByDays.Add(0, 0);
+            return Json(revenueByDays);
+        }
+        [HttpGet]
+        [Authorize]
+        public JsonResult GetOrderCountByMonths()
+        {
+            var months = (from order in context.Orders select order.ClosedDate.Month).Distinct();
+            List<double> revenues = new List<double>();
+            foreach (var month in months)
+            {
+                revenues.Add((from order in context.Orders where order.ClosedDate.Month == month select order).Count());
+            }
+
+            var revenueByDays = months.Zip(revenues, (key, value) => new { key, value })
+                .ToDictionary(x => x.key, x => x.value);
+            revenueByDays.Add(0, 0);
+            return Json(revenueByDays);
         }
 
         [HttpGet]

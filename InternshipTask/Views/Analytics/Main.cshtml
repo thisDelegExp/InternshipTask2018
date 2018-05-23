@@ -1,4 +1,8 @@
-﻿<style>
+﻿
+<script src="lib/Chart.js"></script>
+<script src="lib/jQuery/dist/jquery.min.js"></script>
+
+<style>
     .header_item:hover {
         background-image: linear-gradient(darkcyan,deepskyblue);
     }
@@ -64,7 +68,24 @@
         </div>
     </div>
     <div class="content-row" style="flex-grow: 7">
-        <div><canvas class="chart"></canvas></div>
+        <div>
+            
+            <div><canvas id="ChartElem" class="chart"></canvas></div>
+            
+                <div id="orderRadio">
+                    <input type="radio" name="orderDataType" value="Revenue" checked />Revenue
+                    <input type="radio" name="orderDataType" value="OrderCount" />Order count
+                </div>
+                <div id="timeRadio">
+                    <input type="radio" name="timeType" value="ByDays" checked />By days
+                    <input type="radio" name="timeType" value="ByWeeks" />By weeks
+                    <input type="radio" name="timeType" value="ByMonths" />By months
+                </div>
+            
+           
+        </div>
+        <script src="js/ChartBuilder.js"></script>
+        
     </div>   
     
     
