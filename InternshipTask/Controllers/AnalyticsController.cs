@@ -177,7 +177,7 @@ namespace InternshipTask.Controllers
                 (from order in context.Orders where order.Payment == PaymentType.Cash select order.TotalPrice).Sum();
 
             var tips = from order in context.Orders select order.TipsAmount;
-            double avrgTips = tips.Average();
+            double avrgTips = Math.Round(tips.Average());
             int tipsCount = tips.Count();
             double tipsSum = tips.Sum();
 

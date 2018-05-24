@@ -2,11 +2,7 @@
 
 @{
     Layout = null;
-    
-
-
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -20,35 +16,39 @@
 <body>
     <h2>Log in</h2>
 
-<!-- <a asp-action="Register" asp-controller="Account">Sign In</a>-->
-<div class="container"> 
-    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
-        
-        <div>
-            <div class="div_input">
-                
-                <i class="fa fa-user fa-2x" aria-hidden="true" style="color:#39577c"></i>
-                <input type="email" asp-for="Email" placeholder="Your e-mail" />
+    <!-- <a asp-action="Register" asp-controller="Account">Sign In</a>-->
+    <div class="container">
+        <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
 
-            </div>
-            <div class="div_input">
-                <i class="fa fa-lock fa-2x" aria-hidden="true" style="color:#39577c"></i>
-                <input type="password" asp-for="Password" placeholder="Your password" />
-
-            </div>
             <div>
-                <input class="submit" type="submit" name="submit" value="Log in" />
+                <div class="div_input">
+
+                    <i class="fa fa-user fa-2x" aria-hidden="true" style="color:#39577c"></i>
+                    <input type="email" asp-for="Email" placeholder="Your e-mail" />
+
+                </div>
+                <div class="div_input">
+                    <i class="fa fa-lock fa-2x" aria-hidden="true" style="color:#39577c"></i>
+                    <input type="password" asp-for="Password" placeholder="Your password" />
+
+                </div>
+                <div>
+                    <input class="submit" type="submit" name="submit" value="Log in" />
+
+                </div>
+                <div class="errorMsg" asp-validation-summary="ModelOnly"></div>
+                <div><span class="errorMsg" asp-validation-for="Email"></span></div>
+                <div><span class="errorMsg" asp-validation-for="Password"></span></div>
+
 
             </div>
-            <div class="errorMsg" asp-validation-summary="ModelOnly"></div>
-            <div><span class="errorMsg" asp-validation-for="Email"></span></div>
-            <div><span class="errorMsg" asp-validation-for="Password"></span></div>  
-                
-            
-        </div>
 
-    </form>
-</div>
-    
+        </form>
+    </div>
+
 </body>
 </html>
+
+
+
+

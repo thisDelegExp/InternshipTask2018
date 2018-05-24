@@ -49,7 +49,7 @@ namespace InternshipTask
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Analytics}/{action=Main}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

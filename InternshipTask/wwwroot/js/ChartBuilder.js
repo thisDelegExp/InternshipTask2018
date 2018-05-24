@@ -2,8 +2,8 @@
 
 
 function Startup() {
-    var orderRadio = document.getElementsByName("orderDataType");//.orderDataType; getElementById("orderRadio").
-    var timeRadio = document.getElementsByName("timeType");//.timeType; getElementById("timeRadio").
+    var orderRadio = document.getElementsByName("orderDataType");
+    var timeRadio = document.getElementsByName("timeType");
     for (let i = 0; i < timeRadio.length; i++) {
         
             timeRadio[i].onchange=CheckChanged;
@@ -23,7 +23,7 @@ function SendAjax(graphType, controllerName) {
             var data = [];
             for (var i in json)
                 data.push([i, json[i]]);
-            //alert("full json"+data);
+            
             BuildChart(data,graphType);
     }});
 }
@@ -40,8 +40,7 @@ function BuildChart(data, label) {
         orderData[j] = data[i][1];
     }
 
-    //alert("timeStamps"+timeStamps);
-    //alert("orderData"+orderData);
+   
 
     var chart = new Chart(chartContext,
     {
@@ -67,8 +66,8 @@ function BuildChart(data, label) {
 }
 function CheckChanged() {
     var orderType, timeStamp;
-    var orderRadio = document.getElementsByName("orderDataType"); //getElementById("orderRadio").
-    var timeRadio = document.getElementsByName("timeType");//getElementById("timeRadio").
+    var orderRadio = document.getElementsByName("orderDataType");
+    var timeRadio = document.getElementsByName("timeType");
     for (let i = 0; i < timeRadio.length; i++) {
         if (timeRadio[i].checked === true) {
             timeStamp = timeRadio[i].value;
